@@ -14,9 +14,11 @@ function changeElement(number)
 
 function makeMap(array,func)
 {
-    if(arguments[0] === undefined || arguments[1] === undefined)
-    {
-        return -1;
+    if(arguments[0] === undefined || arguments[1] === undefined) {
+        throw  new Error('Error');
+    }
+    if (typeof func !== 'function') {
+        throw new Error('The second arguments must be function!');
     }
     var result = [];
     for(var i = 0;i < array.length; i++)

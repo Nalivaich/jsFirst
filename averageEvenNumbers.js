@@ -13,6 +13,13 @@ function average(counter,array){
 
 function averageEvenNumbers(array, func)
 {
+    if(arguments[0] === undefined || arguments[1] === undefined ) {
+        throw new Error('Error');
+    }
+    if (typeof func !== 'function') {
+        throw new Error('The second arguments must be function!');
+    }
+
     var newArray = myFunctionsJ.filter(array, myFunctionsJ.findEvenNumbers);
     return myFunctionsJ.linearFold(newArray, 0, func);
 }

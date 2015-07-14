@@ -17,7 +17,10 @@ function checkNumber(number)
 function satisfy(array,func)
 {
     if(arguments[0] === undefined || arguments[1] === undefined) {
-        return -1;
+        throw new Error('Error');
+    }
+    if (typeof func !== 'function') {
+        throw new Error('The second arguments must be function!');
     }
     //var result = myFunctionsJ.linearFold(array,0,func);
     for(var i = 0;i < array.length;i++)

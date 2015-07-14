@@ -21,6 +21,12 @@ function giveRandomArray(number,max,min)
 
 function sumRandomNumbers(number,func)
 {
+    if(arguments[0] === undefined || arguments[1] === undefined ) {
+        throw new Error('Error');
+    }
+    if (typeof func !== 'function') {
+        throw new Error('The second arguments must be function!');
+    }
     var array = myFunctionsJ.linearUnfold(number,func);
     var result = 0;
     for(var i = 0; i < array.length;i++)

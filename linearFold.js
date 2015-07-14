@@ -20,7 +20,10 @@ function multiplication(counter, array)
 function linearFold(array, counter, func)
 {
     if(arguments[0] === undefined || arguments[1] === undefined || arguments[2] === undefined) {
-        return -1;
+        throw new Error('Error');
+    }
+    if (typeof func !== 'function') {
+        throw new Error('The third arguments must be function!');
     }
     return func(counter, array);
 }
