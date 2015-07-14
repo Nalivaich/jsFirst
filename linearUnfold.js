@@ -2,6 +2,7 @@
  * Created by vitali.nalivaika on 14.07.2015.
  */
 
+myFunctionsJ.linearUnfold =linearUnfold;
 
 function unfold(number)//ищет ближайшее меньшее, кратное двум число
 {
@@ -24,17 +25,15 @@ function unfold(number)//ищет ближайшее меньшее, кратное двум число
     return result;
 }
 
-myFunctionsJ.linearUnfold =
-    function linearUnfold(counter,func)
+function linearUnfold(counter,func)
+{
+    var result = [];
+    if(arguments[0]=== undefined || arguments[1]===undefined)
     {
-        var result = [];
-        if(arguments[0]=== undefined || arguments[1]===undefined)
-        {
-            return -1;
-        }
-        result = func(counter);
-        return result;
+        return -1;
     }
+    return func(counter);
+}
 
 var var1 = 101;
 //alert(unfold(101));
