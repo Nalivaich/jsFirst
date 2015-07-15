@@ -2,15 +2,15 @@
  * Created by vitali.nalivaika on 14.07.2015.
  */
 
-MyFunctionsJ.filter = filter;
-MyFunctionsJ.findEvenNumbers = function(number) {
-    return ((number % 2) == 0);
-};
+(function() {
+    'use strict';
+    MyFunctionsJ.findEvenNumbers = function(number) {
+        return ((number % 2) == 0);
+    };
 
-    function filter(array, func)
-    {
-        if(arguments[0] === undefined || arguments[1] === undefined) {
-            throw new Error('Error');
+    MyFunctionsJ.filter = function(array, func) {
+        if (arguments[0] === undefined || arguments[1] === undefined) {
+            throw new Error('Wrong argument/s');
         }
 
         if (typeof func !== 'function') {
@@ -19,15 +19,12 @@ MyFunctionsJ.findEvenNumbers = function(number) {
 
         var result = [];
 
-        for(var i = 0; i < array.length; i++) {
-            if(func(array[i])) {
+        for (var i = 0; i < array.length; i++) {
+            if (func(array[i])) {
                 result.push(array[i]);
             }
         }
         return result;
-    }
+    };
 
-var array6 = [1,2,3,4,5,6,7,8,9,10];
-/*alert(filter(array6,function(number){ //фильтрует и оставляет только четные числа
-    return ((number%2)== 0);
-}));*/
+})();

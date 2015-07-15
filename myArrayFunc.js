@@ -20,9 +20,21 @@
         return (number > 5) ? true : false;
     }
 
+
+    function select(array, func) {
+        var newArray = [];
+
+        for(var i = 0; i<array.length; i++) {
+            newArray = func(array[i]);
+        }
+
+        return newArray;
+    }
+
+
     //accepts an array and converts function
     //returns array with all the new values
-    function select(array, func) {
+    function where(array, func) {
         var newArray = [];
 
         for (var i = 0, j = 0; i < array.length; i++) {
@@ -36,7 +48,7 @@
     }
 
     var rrr = [0, 5, 6, 4, 1, 2, 3, 7, 3];
-    //alert(select(rrr,more5));
+    //alert(where(rrr,more5));
 
 
     //accepts an array and filter function
@@ -44,7 +56,7 @@
     function first(array, func) {
         var newArray;
 
-        newArray = select(array, func);
+        newArray = where(array, func);
         return (newArray.length !== 0 ) ? newArray[0] : 'no element to return';
     }
 
@@ -55,7 +67,7 @@
     function last(array, func) {
         var newArray;
 
-        newArray = select(array, func);
+        newArray = where(array, func);
         return (newArray.length !== 0 ) ? newArray[newArray.length - 1] : 'no element to return';
     }
 
@@ -121,7 +133,7 @@
 
     //accepts an array and predicate function
     //returns array with the new values while conditions are met
-    function where(array, func) {
+    /*function where(array, func) {
         var newArray = [];
 
         for (var i = 0, j = 0; i < array.length; i++) {
@@ -135,7 +147,7 @@
 
         return newArray;
     }
-
+    */
     /*var fff = [6,6,3,6,1,9];
      alert(where(fff,more5));*/
 

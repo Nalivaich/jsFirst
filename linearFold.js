@@ -1,32 +1,31 @@
 /**
  * Created by vitali.nalivaika on 14.07.2015.
  */
+(function() {
+    'use strict';
 
-MyFunctionsJ.linearFold = linearFold;
+    function multiplication(counter, array) {
+        if (arguments[0] === undefined || arguments[1] === undefined) {
+            throw new Error('Wrong argument/s');
+        }
 
-function multiplication(counter, array) {
-    if(arguments[0] === undefined || arguments[1] === undefined) {
-        throw new Error('Error');
+        for (var i = 0; i < array.length; i++) {
+            counter *= array[i];
+        }
+
+        return counter;
     }
 
-    for(var i = 0; i < array.length; i++) {
-        counter *= array[i];
-    }
+    MyFunctionsJ.linearFold = function(array, counter, func) {
+        if (arguments[0] === undefined || arguments[1] === undefined || arguments[2] === undefined) {
+            throw new Error('Wrong argument/s');
+        }
 
-    return counter;
-}
+        if (typeof func !== 'function') {
+            throw new Error('The third arguments must be function!');
+        }
 
-function linearFold(array, counter, func) {
-    if(arguments[0] === undefined || arguments[1] === undefined || arguments[2] === undefined) {
-        throw new Error('Error');
-    }
+        return func(counter, array);
+    };
 
-    if (typeof func !== 'function') {
-        throw new Error('The third arguments must be function!');
-    }
-
-    return func(counter, array);
-}
-
-var array3 = [1,2,3,4,5];
-//alert(linearFold(array3, 1, multiplication));
+})();

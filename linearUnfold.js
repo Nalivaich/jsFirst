@@ -1,44 +1,43 @@
 /**
  * Created by vitali.nalivaika on 14.07.2015.
  */
-
-MyFunctionsJ.linearUnfold =linearUnfold;
+(function() {
+    'use strict';
 
 //ищет ближайшее меньшее, кратное двум число
-function unfold(number) {
-    if (arguments[0] === undefined) {
-        throw new Error('Error');
-    }
-
-    var result = [];
-
-    while(number) {
-        if (number === 0) {
-            number = -1;
+    function unfold(number) {
+        if (arguments[0] === undefined) {
+            throw new Error('Wrong argument/s');
         }
 
-        if ((number % 2) != 0) {
-            result.push(number - 1);
-            number -= 1;
-        } else {
-            result.push(number - 2);
-            number -= 2;
+        var result = [];
+
+        while (number) {
+            if (number === 0) {
+                number = -1;
+            }
+
+            if ((number % 2) != 0) {
+                result.push(number - 1);
+                number -= 1;
+            } else {
+                result.push(number - 2);
+                number -= 2;
+            }
         }
-    }
-    return result;
-}
-
-function linearUnfold(counter, func) {
-    if(arguments[0] === undefined || arguments[1] === undefined) {
-        throw new Error('Error');
+        return result;
     }
 
-    if (typeof func !== 'function') {
-        throw new Error('The second arguments must be function!');
-    }
+    MyFunctionsJ.linearUnfold = function(counter, func) {
+        if (arguments[0] === undefined || arguments[1] === undefined) {
+            throw new Error('Wrong argument/s');
+        }
 
-    return func(counter);
-}
+        if (typeof func !== 'function') {
+            throw new Error('The second arguments must be function!');
+        }
 
-var var1 = 101;
-//alert(unfold(101));
+        return func(counter);
+    };
+
+})();

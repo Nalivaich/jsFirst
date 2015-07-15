@@ -4,6 +4,15 @@
 
 (function() {
     'use strict';
+
+    MyMiniLibrary.prototype.isArray = isArray;
+    MyMiniLibrary.prototype.isDate = isDate;
+    MyMiniLibrary.prototype.isFunction = isFunction;
+    MyMiniLibrary.prototype.isNull = isNull;
+    MyMiniLibrary.prototype.isBoolean = isBoolean;
+    MyMiniLibrary.prototype.isNumber = isNumber;
+    MyMiniLibrary.prototype.isUndefined = isUndefined;
+    MyMiniLibrary.prototype.isString = isString;
     //private
     function isRightArguments(args) {
         for (var i = 0; i < args.length; i++) {
@@ -13,7 +22,6 @@
         }
         return true;
     }
-
     //public
     function isArray(obj) {
         if (isRightArguments(arguments)) {
