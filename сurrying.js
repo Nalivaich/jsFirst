@@ -32,5 +32,5 @@ Function.prototype.curry = function(numArgs) {
 
 var res = sum.curry(3);
 
-alert(res(5)(5)(5));
+//alert(res(5)(5)(5));
 
