@@ -2,30 +2,27 @@
  * Created by vitali.nalivaika on 14.07.2015.
  */
 
-/*function partialApplication(value1,value2){
-    return function(value2){
-        return partialApplication(value1,value2);
-    }
-}*/
-
 function sum() {
 
     var result = 0;
-    for(var i = 0;i < arguments.length;i++)
-    {
+
+    for(var i = 0; i < arguments.length; i++) {
         result += arguments[i];
     }
+
     return result;
 
 }
 
-function partial(func){
+function partial(func) {
     var args = arguments, partialArgs = [];
-    for(var i = 1; i< args.length;i++){
+
+    for(var i = 1; i < args.length; i++) {
         partialArgs[i-1] = args[i];
     }
     return function () {
         var argsArr = Array.prototype.slice.call(arguments, 0);
+
         partialArgs = partialArgs.concat(argsArr);
         return func.apply(this, partialArgs);
     }

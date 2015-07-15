@@ -2,18 +2,21 @@
  * Created by vitali.nalivaika on 14.07.2015.
  */
 
-myFunctionsJ.linearUnfold =linearUnfold;
+MyFunctionsJ.linearUnfold =linearUnfold;
 
-function unfold(number)//ищет ближайшее меньшее, кратное двум число
-{
+//ищет ближайшее меньшее, кратное двум число
+function unfold(number) {
     if (arguments[0] === undefined) {
-        return -1;
+        throw new Error('Error');
     }
+
     var result = [];
+
     while(number) {
         if (number === 0) {
             number = -1;
         }
+
         if ((number % 2) != 0) {
             result.push(number - 1);
             number -= 1;
@@ -25,14 +28,15 @@ function unfold(number)//ищет ближайшее меньшее, кратное двум число
     return result;
 }
 
-function linearUnfold(counter,func)
-{
+function linearUnfold(counter, func) {
     if(arguments[0] === undefined || arguments[1] === undefined) {
         throw new Error('Error');
     }
+
     if (typeof func !== 'function') {
         throw new Error('The second arguments must be function!');
     }
+
     return func(counter);
 }
 

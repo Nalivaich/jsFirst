@@ -2,29 +2,28 @@
  * Created by vitali.nalivaika on 13.07.2015.
  */
 
-myFunctionsJ.first = satisfy;
+MyFunctionsJ.first = satisfy;
 
-function checkNumber(number)
-{
+function checkNumber(number) {
     if(arguments[0] === undefined) {
         return -1;
     }
 
-    const c = 10;
-    return (number > c);
+    const SATISFY_VALUE = 10;
+    return (number > SATISFY_VALUE);
 }
 
-function satisfy(array,func)
-{
+function satisfy(array, func) {
     if(arguments[0] === undefined || arguments[1] === undefined) {
         throw new Error('Error');
     }
+
     if (typeof func !== 'function') {
         throw new Error('The second arguments must be function!');
     }
+
     //var result = myFunctionsJ.linearFold(array,0,func);
-    for(var i = 0;i < array.length;i++)
-    {
+    for(var i = 0; i < array.length; i++) {
         if(func(array[i])) {
             return array[i];
         }

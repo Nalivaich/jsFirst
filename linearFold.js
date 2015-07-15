@@ -2,29 +2,29 @@
  * Created by vitali.nalivaika on 14.07.2015.
  */
 
-myFunctionsJ.linearFold = linearFold;
+MyFunctionsJ.linearFold = linearFold;
 
-function multiplication(counter, array)
-{
-    if(arguments[0] === undefined || arguments[1] === undefined)
-    {
-        return -1;
+function multiplication(counter, array) {
+    if(arguments[0] === undefined || arguments[1] === undefined) {
+        throw new Error('Error');
     }
-    for(var i = 0; i < array.length; i++)
-    {
+
+    for(var i = 0; i < array.length; i++) {
         counter *= array[i];
     }
+
     return counter;
 }
 
-function linearFold(array, counter, func)
-{
+function linearFold(array, counter, func) {
     if(arguments[0] === undefined || arguments[1] === undefined || arguments[2] === undefined) {
         throw new Error('Error');
     }
+
     if (typeof func !== 'function') {
         throw new Error('The third arguments must be function!');
     }
+
     return func(counter, array);
 }
 

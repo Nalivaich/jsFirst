@@ -4,27 +4,29 @@
 
 myFunctionsJ.makeMap = makeMap;
 
-function changeElement(number)
-{
+function changeElement(number) {
     if(arguments[0] === undefined) {
         throw new TypeError('Error!');
     }
+
     return number * 2;
 }
 
-function makeMap(array,func)
-{
+function makeMap(array, func) {
     if(arguments[0] === undefined || arguments[1] === undefined) {
         throw  new Error('Error');
     }
+
     if (typeof func !== 'function') {
         throw new Error('The second arguments must be function!');
     }
+
     var result = [];
-    for(var i = 0;i < array.length; i++)
-    {
+
+    for(var i = 0; i < array.length; i++) {
         result.push(changeElement(array[i]));
     }
+
     return result;
 }
 
