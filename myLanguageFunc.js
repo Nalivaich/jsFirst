@@ -2,17 +2,8 @@
  * Created by vitali.nalivaika on 15.07.2015.
  */
 
-(function() {
+LANGUAGE_FUNCTIONS = (function() {
     'use strict';
-
-    MyMiniLibrary.prototype.isArray = isArray;
-    MyMiniLibrary.prototype.isDate = isDate;
-    MyMiniLibrary.prototype.isFunction = isFunction;
-    MyMiniLibrary.prototype.isNull = isNull;
-    MyMiniLibrary.prototype.isBoolean = isBoolean;
-    MyMiniLibrary.prototype.isNumber = isNumber;
-    MyMiniLibrary.prototype.isUndefined = isUndefined;
-    MyMiniLibrary.prototype.isString = isString;
     //private
     function isRightArguments(args) {
         for (var i = 0; i < args.length; i++) {
@@ -22,7 +13,7 @@
         }
         return true;
     }
-    //public
+    //public all
     function isArray(obj) {
         if (isRightArguments(arguments)) {
             throw new Error('Invalid argument/s');
@@ -88,11 +79,17 @@
     }
 
 
-    /*var myObject = new Object();
-     var myDate = new Date()
-     var meArray = [];
-     function return5(){return 5;}
-     alert(isArray());*/
+    return {
+        isArray1 : isArray,
+        isDate : isDate,
+        isFunction : isFunction,
+        isNull: isNull,
+        isBoolean : isBoolean,
+        isNumber : isNumber,
+        isUndefined : isUndefined,
+        isString : isString
+    };
+
 })();
 
 

@@ -1,8 +1,19 @@
 /**
  * Created by vitali.nalivaika on 15.07.2015.
  */
-(function() {
+ARRAY_FUNCTIONS = (function() {
     'use strict';
+
+    //private
+    function isEquals(number1, number2) {
+        return (number1 === number2) ? true : false;
+    }
+
+    function more5(number) {
+        return (number > 5) ? true : false;
+    }
+
+    //public
     //accept an function and array for iteration
     //used to iterate over the array iterative
     function forEach(func, array) {
@@ -10,16 +21,6 @@
             func(array[i], i, array);
         }
     }
-
-    /*
-     function func2(i){alert(i++)}
-     var ii = [1,2,3]
-     forEach(func2,ii);*/
-
-    function more5(number) {
-        return (number > 5) ? true : false;
-    }
-
 
     function select(array, func) {
         var newArray = [];
@@ -30,7 +31,6 @@
 
         return newArray;
     }
-
 
     //accepts an array and converts function
     //returns array with all the new values
@@ -47,10 +47,6 @@
         return newArray;
     }
 
-    var rrr = [0, 5, 6, 4, 1, 2, 3, 7, 3];
-    //alert(where(rrr,more5));
-
-
     //accepts an array and filter function
     //returns the first element of the filtered array
     function first(array, func) {
@@ -60,8 +56,6 @@
         return (newArray.length !== 0 ) ? newArray[0] : 'no element to return';
     }
 
-    //alert(first(rrr,more5));
-
     //accepts an array and filter function
     //returns the last element of the filtered array
     function last(array, func) {
@@ -69,14 +63,6 @@
 
         newArray = where(array, func);
         return (newArray.length !== 0 ) ? newArray[newArray.length - 1] : 'no element to return';
-    }
-
-    //alert(last(rrr,more5));
-
-
-    //private
-    function isEquals(number1, number2) {
-        return (number1 === number2) ? true : false;
     }
 
     //accepts an array and some number
@@ -92,9 +78,6 @@
         }
         return newArray;
     }
-
-    var arr4 = [];
-    //alert(skipNumber(arr4,4));
 
     //accepts an array and some number
     //returns new array with N(number) first elements missing
@@ -113,9 +96,6 @@
 
     //accepts an array and some number
     //returns new array consisting of the first N(number) elements
-    var someArr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-    //alert(skip(someArr,5));
-
     function take(array, number) {
         var newArray = [];
         if (array.length < number) {
@@ -128,27 +108,77 @@
         return newArray;
     }
 
+    var asChain = function (targetArray) {
+        if (!Array.isArray(targetArray)) {
+            throw new TypeError('Incorrect input: argument is not an Array.');
+        }
+        var arrayForReturn = targetArray;
+
+        return{
+            forEach: function (action) {
+                arrayForReturn = forEach(arrayForReturn, action);
+                return this;
+            },
+            where: function (predicate) {
+                arrayForReturn = where(arrayForReturn, predicate);
+                return this;
+            },
+            first: function (predicate) {
+                arrayForReturn = first(arrayForReturn, predicate);
+                return this;
+            },
+            last: function (predicate) {
+                arrayForReturn = last(arrayForReturn, predicate);
+                return this;
+            },
+            select: function (selector) {
+                arrayForReturn = select(arrayForReturn, selector);
+                return this;
+            },
+
+            skip: function(count) {
+                arrayForReturn = skip(arrayForReturn, count);
+                return this;
+            },
+
+            take: function(count) {
+                arrayForReturn = take(arrayForReturn, count);
+                return this;
+            },
+
+            result: function() {
+                return arrayForReturn;
+            }
+        };
+    };
+
+    var array1 = [0, 5, 6, 4, 1, 2, 3, 7, 3];
+    var someArr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    var array4 = [];
+    //alert(where(array1,more5));
+
+    //alert(first(array1,more5));
+
+    //alert(last(array1,more5));
+
+    //alert(skipNumber(arr4,4));
+
+    //alert(skip(someArr,5));
+
     //alert(take(someArr,10));
 
-
-    //accepts an array and predicate function
-    //returns array with the new values while conditions are met
-    /*function where(array, func) {
-        var newArray = [];
-
-        for (var i = 0, j = 0; i < array.length; i++) {
-            if (func(array[i])) {
-                newArray[j] = array[i];
-                j++;
-            } else {
-                return newArray;
-            }
-        }
-
-        return newArray;
-    }
-    */
-    /*var fff = [6,6,3,6,1,9];
-     alert(where(fff,more5));*/
+    return {
+        forEach : forEach,
+        where : where,
+        first : first,
+        last : last,
+        select : select,
+        skip : skip,
+        skipNumber : skipNumber,
+        take : take,
+        asChain: asChain
+    };
 
 })();
+
+//alert(ARRAY_FUNCTIONS.asChain([1,2,3,4,5,6,7,8,9]).take(6).skip(3).result());
