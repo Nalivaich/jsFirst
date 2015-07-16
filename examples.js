@@ -61,15 +61,6 @@
         return number * 2;
     }
 
-    function average(counter, array) {
-        var result = 0;
-
-        for (var i = 0; i < array.length; i++) {
-            result += array[i];
-        }
-        return result / array.length;
-    }
-
     function giveRandomArray(number, max, min) {
         var maxValue;
         var minValue;
@@ -90,11 +81,11 @@
     }
 
     function checkNumber(number) {
+        const SATISFY_VALUE = 10;
         if (arguments[0] === undefined) {
             return -1;
         }
 
-        const SATISFY_VALUE = 10;
         return (number > SATISFY_VALUE);
     }
 
@@ -109,11 +100,11 @@
 
     //Linear fold
     var array3 = [1, 2, 3, 4, 5];
-    //alert(MyFunctionsJ.linearFold(array3, 1, multiplication));
+    //alert(MyFunctionsJ.linearFold(array3, 0, MyFunctionsJ.average));
 
     //Linear unfold
-    var number4 = 101;
-    //alert(MyFunctionsJ.linearUnfold(101, unfold));
+    var number4 = 1;
+    //alert(MyFunctionsJ.linearUnfold(number4, MyFunctionsJ.unfoldExample));
 
     //Map
     var number5 = [1, 4, 9];
@@ -130,7 +121,7 @@
     //alert(MyFunctionsJ.averageEvenNumbers(array7, MyFunctionsJ.average));
 
     //Sum of random numbers
-    //alert(MyFunctionsJ.sumRandomNumbers(10,MyFunctionsJ.giveRandomArray));
+    //alert(MyFunctionsJ.sumRandomNumbers(10,MyFunctionsJ.giveRandomNumber));
 
     //First
     var array9 = [4, 6, 7, 8, 9, 10, 77, 88];
@@ -138,7 +129,7 @@
 
     //Memoization
     var varMemo = MyFunctionsJ.memoization(sum);
-    //alert(varMemo(5,5));//При желании можно зачечь время
+    //alert(varMemo(5,5));//При желании можно заcечь время
     //alert(varMemo(5,5));
 
     //Lazy evaluation

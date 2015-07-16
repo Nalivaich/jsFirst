@@ -4,32 +4,25 @@
 (function() {
     'use strict';
 
-//ищет ближайшее меньшее, кратное двум число
-    function unfold(number) {
-        if (arguments[0] === undefined) {
-            throw new Error('Wrong argument/s');
+    //Returns an array from number to maxNumber
+    MyFunctionsJ.unfoldExample = function(number, maxNumber) {
+        var max  = (maxNumber === undefined) ? 10 : maxNumber;
+
+        if(number > max) {
+            return {
+                element : false,
+                nextCounter : false
+            };
         }
+        return {
+            element : number,
+            nextCounter : (number + 1)
+        };
+    };
 
-        var result = [];
-
-        while (number) {
-            if (number === 0) {
-                number = -1;
-            }
-
-            if ((number % 2) != 0) {
-                result.push(number - 1);
-                number -= 1;
-            } else {
-                result.push(number - 2);
-                number -= 2;
-            }
-        }
-        return result;
-    }
 
     MyFunctionsJ.linearUnfold = function(counter, func) {
-        if (arguments[0] === undefined || arguments[1] === undefined) {
+        if (counter === undefined || func === undefined) {
             throw new Error('Wrong argument/s');
         }
 
@@ -37,7 +30,27 @@
             throw new Error('The second arguments must be function!');
         }
 
-        return func(counter);
+        var callBackResult = {
+            element  : 0,
+            nextCounter : 0
+        };
+        var newCounter = counter;
+        var newArray = [];
+        var index = 0;
+        do {
+            callBackResult = func(newCounter);
+            if(callBackResult.element === undefined || callBackResult.nextCounter === undefined) {
+                return;
+            }
+            if(callBackResult.element != false) {
+                newArray[index] = callBackResult.element;
+                index++;
+            }
+            newCounter = callBackResult.nextCounter;
+            if(callBackResult.element === false || callBackResult.nextCounter === false) {
+                return newArray;
+            }
+        } while (true)
     };
 
 })();

@@ -4,17 +4,8 @@
 (function() {
     'use strict';
 
-    function checkNumber(number) {
-        if (arguments[0] === undefined) {
-            return -1;
-        }
-
-        const SATISFY_VALUE = 10;
-        return (number > SATISFY_VALUE);
-    }
-
     MyFunctionsJ.first = function(array, func) {
-        if (arguments[0] === undefined || arguments[1] === undefined) {
+        if (array === undefined || func === undefined) {
             throw new Error('Error');
         }
 

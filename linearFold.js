@@ -4,28 +4,20 @@
 (function() {
     'use strict';
 
-    function multiplication(counter, array) {
-        if (arguments[0] === undefined || arguments[1] === undefined) {
+    MyFunctionsJ.linearFold = function(array, counter, func)
+    {
+        if(array === undefined || counter === undefined || func === undefined){
             throw new Error('Wrong argument/s');
         }
 
-        for (var i = 0; i < array.length; i++) {
-            counter *= array[i];
+        var newCounter = counter;
+        for(var i=0;i<array.length;i++)
+        {
+            newCounter = func(newCounter, array[i], i, array);
         }
 
-        return counter;
-    }
-
-    MyFunctionsJ.linearFold = function(array, counter, func) {
-        if (arguments[0] === undefined || arguments[1] === undefined || arguments[2] === undefined) {
-            throw new Error('Wrong argument/s');
-        }
-
-        if (typeof func !== 'function') {
-            throw new Error('The third arguments must be function!');
-        }
-
-        return func(counter, array);
+        return newCounter;
     };
+
 
 })();

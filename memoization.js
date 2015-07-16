@@ -3,9 +3,6 @@
  */
 (function() {
     'use strict';
-    function sum(a, b) {
-        return a + b;
-    }
 
     MyFunctionsJ.memoization = function(func) {
         var memo = {};

@@ -5,7 +5,7 @@
     'use strict';
 
     function changeElement(number) {
-        if (arguments[0] === undefined) {
+        if (number === undefined) {
             throw new TypeError('Wrong argument/s!');
         }
 
@@ -13,7 +13,7 @@
     }
 
     MyFunctionsJ.makeMap = function(array, func) {
-        if (arguments[0] === undefined || arguments[1] === undefined) {
+        if (array === undefined || func === undefined) {
             throw  new Error('Wrong argument/s');
         }
 
@@ -24,10 +24,9 @@
         var result = [];
 
         for (var i = 0; i < array.length; i++) {
-            result.push(changeElement(array[i]));
+            result.push(func(array[i]));
         }
 
         return result;
     };
-
 })();

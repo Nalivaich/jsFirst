@@ -6,7 +6,7 @@
     'use strict';
 
     MyFunctionsJ.lazyEval = function(func) {
-        if (arguments[0] === undefined) {
+        if (func === undefined) {
             throw new Error('Wrong argument/s');
         }
 

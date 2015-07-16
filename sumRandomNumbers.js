@@ -8,12 +8,12 @@
         var minValue;
         var result = [];
 
-        if (arguments[0] === undefined) {
-            return -1;
+        if (number === undefined) {
+            throw new TypeError('Wrong argument/s!');
         }
 
-        maxValue = (arguments[1] === undefined) ? 100 : max;
-        minValue = (arguments[2] === undefined) ? 0 : min;
+        maxValue = (max === undefined) ? 100 : max;
+        minValue = (min === undefined) ? 0 : min;
 
         for (var i = 0; i < number; i++) {
             result.push(Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue);
@@ -22,8 +22,31 @@
         return result;
     };
 
+
+    MyFunctionsJ.giveRandomNumber = function(number, max, min) {
+        var maxValue;
+        var minValue;
+
+        maxValue = (max === undefined) ? 100 : max;
+        minValue = (min === undefined) ? 0 : min;
+
+        if(number === 0) {
+            return {
+                element : false,
+                nextCounter : false
+            };
+        }
+        return {
+            element : (Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue),
+            nextCounter : (number - 1)
+        };
+
+    };
+
+
+
     MyFunctionsJ.sumRandomNumbers = function(number, func) {
-        if (arguments[0] === undefined || arguments[1] === undefined) {
+        if (number === undefined || func === undefined) {
             throw new Error('Wrong argument/s');
         }
 

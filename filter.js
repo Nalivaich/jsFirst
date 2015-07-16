@@ -9,7 +9,7 @@
     };
 
     MyFunctionsJ.filter = function(array, func) {
-        if (arguments[0] === undefined || arguments[1] === undefined) {
+        if (array === undefined || func === undefined) {
             throw new Error('Wrong argument/s');
         }
 

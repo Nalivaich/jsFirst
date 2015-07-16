@@ -4,17 +4,17 @@
 
 (function() {
     'use strict';
-    MyFunctionsJ.average = function(counter, array) {
-        var result = 0;
 
-        for (var i = 0; i < array.length; i++) {
-            result += array[i];
+    MyFunctionsJ.average = function(counter, number, index, array) {
+
+        if(index == (array.length - 1)) {
+            return (counter += number)/array.length;
         }
-        return result / array.length;
-    }
+        return counter += number;
+    };
 
     MyFunctionsJ.averageEvenNumbers = function(array, func) {
-        if (arguments[0] === undefined || arguments[1] === undefined) {
+        if (array === undefined || func === undefined) {
             throw new Error('Wrong argument/s');
         }
 
