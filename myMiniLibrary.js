@@ -2,4 +2,7 @@
  * Created by vitali.nalivaika on 15.07.2015.
  */
 
- MyMiniLibrary = {};
+
+if (typeof MyMiniLibrary === "undefined") {
+ var MyMiniLibrary = {};
+}

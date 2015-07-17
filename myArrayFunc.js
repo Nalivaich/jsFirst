@@ -1,7 +1,8 @@
 /**
  * Created by vitali.nalivaika on 15.07.2015.
  */
-ARRAY_FUNCTIONS = (function() {
+
+MyMiniLibrary.ARRAY_FUNCTIONS = (function() {
     'use strict';
 
     //private

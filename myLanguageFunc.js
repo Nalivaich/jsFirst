@@ -2,7 +2,7 @@
  * Created by vitali.nalivaika on 15.07.2015.
  */
 
-LANGUAGE_FUNCTIONS = (function() {
+MyMiniLibrary.LANGUAGE_FUNCTIONS = (function() {
     'use strict';
     //private
     function isRightArguments(args) {
@@ -15,7 +15,7 @@ LANGUAGE_FUNCTIONS = (function() {
     }
     //public all
     function isArray(obj) {
-        if (isRightArguments(arguments)) {
+        if (!isRightArguments(arguments)) {
             throw new Error('Invalid argument/s');
         } else {
             return (typeof obj === "object") && (obj instanceof Array);
@@ -23,7 +23,7 @@ LANGUAGE_FUNCTIONS = (function() {
     }
 
     function isDate(obj) {
-        if (isRightArguments(arguments)) {
+        if (!isRightArguments(arguments)) {
             throw new Error('Invalid argument/s');
         } else {
             return (typeof obj === "object") && (obj instanceof Date);
@@ -31,7 +31,7 @@ LANGUAGE_FUNCTIONS = (function() {
     }
 
     function isFunction(obj) {
-        if (isRightArguments(arguments)) {
+        if (!isRightArguments(arguments)) {
             throw new Error('Invalid argument/s');
         } else {
             return (typeof obj === "function") && (obj instanceof Function);
@@ -39,7 +39,7 @@ LANGUAGE_FUNCTIONS = (function() {
     }
 
     function isNull(obj) {
-        if (isRightArguments(arguments)) {
+        if (!isRightArguments(arguments)) {
             throw new Error('Invalid argument/s');
         } else {
             return (typeof obj === "object") && (obj === null);
@@ -47,7 +47,7 @@ LANGUAGE_FUNCTIONS = (function() {
     }
 
     function isBoolean(obj) {
-        if (isRightArguments(arguments)) {
+        if (!isRightArguments(arguments)) {
             throw new Error('Invalid argument/s');
         } else {
             return (typeof obj === "boolean");
@@ -55,7 +55,7 @@ LANGUAGE_FUNCTIONS = (function() {
     }
 
     function isNumber(obj) {
-        if (isRightArguments(arguments)) {
+        if (!isRightArguments(arguments)) {
             throw new Error('Invalid argument/s');
         } else {
             return (typeof obj === "number");
@@ -63,7 +63,7 @@ LANGUAGE_FUNCTIONS = (function() {
     }
 
     function isUndefined(obj) {
-        if (isRightArguments(arguments)) {
+        if (!isRightArguments(arguments)) {
             throw new Error('Invalid argument/s');
         } else {
             return (typeof obj === "undefined");
@@ -71,16 +71,15 @@ LANGUAGE_FUNCTIONS = (function() {
     }
 
     function isString(obj) {
-        if (isRightArguments(arguments)) {
+        if (!isRightArguments(arguments)) {
             throw new Error('Invalid argument/s');
         } else {
             return (typeof obj === "string");
         }
     }
 
-
     return {
-        isArray1 : isArray,
+        isArray : isArray,
         isDate : isDate,
         isFunction : isFunction,
         isNull: isNull,

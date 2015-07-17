@@ -2,7 +2,7 @@
  * Created by vitali.nalivaika on 15.07.2015.
  */
 
-ADDITIONAL_FUNCTIONS = (function() {
+MyMiniLibrary.ADDITIONAL_FUNCTIONS = (function() {
     'use strict';
 
     function memoize(func) {
