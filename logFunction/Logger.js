@@ -3,4 +3,4 @@
  */
 
 
-var Logo = {};
+var Logger = {};

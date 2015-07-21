@@ -2,13 +2,9 @@
  * Created by vitali.nalivaika on 20.07.2015.
  */
 
+Logger.BaseRepository = (function() {
+    'use strict';
 
-/**
- * Created by vitali.nalivaika on 20.07.2015.
- */
-Logo.BaseRepository = (function() {
-
-    var repository = [];
 
     //remove object by index
     function deleteObject(index) { }
@@ -22,16 +18,15 @@ Logo.BaseRepository = (function() {
     return {
         deleteObject : deleteObject,
         addObject : addObject,
-        findObject : findObject,
-        repository : repository
+        findObject : findObject
     };
 
 })();
 
-Logo.Repository = (function() {
+Logger.inMemoryRepository = (function() {
     'use strict';
-    var repository = [];
 
+    var repository = [];
 
     //remove object by index
     function deleteObject(index) {
@@ -55,7 +50,7 @@ Logo.Repository = (function() {
     }
 
     return {
-        deleteObject : deleteObject,
+        deleteObject: deleteObject,
         addObject : addObject,
         findObject : findObject,
         repository : repository
@@ -63,3 +58,57 @@ Logo.Repository = (function() {
 
 
 })();
+
+Logger.inMemoryRepository = function () {
+
+};
+Logger.inMemoryRepository.prototype = new BaseRepository();
+Logger.inMemoryRepository.prototype.addObject = function(){
+
+};
+
+Logger.inMemoryRepository.prototype.deleteObject = function()
+{
+
+};
+
+Logger.setRepositoryMethods = (function() {
+    'use strict';
+
+    function extend(Child, Parent) {
+        var F = function() { };
+        F.prototype = Parent.prototype;
+        Child.prototype = new F();
+        Child.prototype.constructor = Child;
+        Child.superclass = Parent.prototype;
+    }
+
+    var baseRepositoryObject = Logger.BaseRepository;
+    var inMemoryRepositoryObject =  Logger.inMemoryRepository;
+    extend(inMemoryRepositoryObject, baseRepositoryObject);
+    var repositoryActionsObject =  inMemoryRepositoryObject;
+
+    function fillRepository(obj) {
+
+        extend(obj, baseRepositoryObject);
+       /* if(obj.addObject === undefined) {
+            obj.addObject = Logger.Repository.addObject;
+        }
+
+        if(obj.deleteObject === undefined) {
+            obj.deleteObject = Logger.Repository.deleteObject;
+        }
+
+        if(obj.findObject === undefined) {
+            obj.findObject = Logger.Repository.findObject;
+        }
+
+        if(obj.addObject === undefined) {
+            obj.repository = Logger.Repository.repository;
+        }*/
+        return obj;
+    }
+
+
+})();
+

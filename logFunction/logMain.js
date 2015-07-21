@@ -2,7 +2,7 @@
  * Created by vitali.nalivaika on 20.07.2015.
  */
 
-Logo.Main = (function() {
+Logger.Main = (function() {
     'use strict';
 
     //private
@@ -27,16 +27,16 @@ Logo.Main = (function() {
     function logFunction(obj, formattingFunc, outputMethodName) {
         var checkFunc;
         var newErrorObject;
-
+        //убрать второй параметр : formattingFunc
         if(formattingFunc === undefined) {
-            checkFunc = Logo.Formatting.registerObject;
+            checkFunc = Logger.Registration.registerObject;
         } else {
             checkFunc = formattingFunc;
         }
 
         if(isObject(obj)) {
             newErrorObject = checkFunc(obj);
-            Logo.Output.showLogoInfo(newErrorObject.index, outputMethodName); //выводим значения обьекта уже из репозитория
+            Logger.Output.showLogInfo(newErrorObject.index, outputMethodName); //выводим значения обьекта уже из репозитория
             return newErrorObject.index; //возвращаем индекс залогированного обьекта в репозитории
             //return sth output func
         } else {
@@ -51,9 +51,9 @@ Logo.Main = (function() {
 
 
 
-var errorObject =  (new Error());
+/*var errorObject =  (new Error());
 errorObject.message = 'some message';
-//Logo.Output.showObjectsAlert(errorObject);
-Logo.Main.logFunction(errorObject ,'ALErt');
-Logo.Main.logFunction(errorObject);
-Logo.Main.logFunction(errorObject);
+//Logger.Output.showObjectsAlert(errorObject);
+Logger.Main.logFunction(errorObject,undefined,'OFf' );
+Logger.Main.logFunction(errorObject);
+Logger.Main.logFunction(errorObject);*/

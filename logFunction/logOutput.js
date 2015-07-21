@@ -2,17 +2,16 @@
  * Created by vitali.nalivaika on 20.07.2015.
  */
 
-Logo.Output = (function() {
+Logger.Output = (function() {
     'use strict';
 
-   /* function showLogoInfo(index, methodString) {
+   /* function showLogInfo(index, methodString) {
         if(methodString === undefined) {
             return showObjectsAlert(index);
         } else {
             return choseOutput(methodString);
         }
     }*/
-    // добавить функцию, которая может добавлять проперти к обьекту, они д.б. функциями
 
     var outputMethodObject = {
         console: function(index){
@@ -20,6 +19,9 @@ Logo.Output = (function() {
         },
         alert: function(index){
             showObjects(index, showElementAlert);
+        },
+        off: function() {
+            console.log('Output is disabled');
         }
     };
 
@@ -30,6 +32,7 @@ Logo.Output = (function() {
 
     //Add new property in outputMethodObject object
     function addOutputMethod(outputMethod, methodName) {
+        //if(!methodName || outputMethod ) //вроди бы так
         if(methodName === undefined || outputMethod === undefined) {
             return alert('Wrong argument/s');
         }
@@ -52,9 +55,17 @@ Logo.Output = (function() {
     }
 
 
-    function showLogoInfo(index, outputMethodName) {
+    function showLogInfo(index, outputMethodName) {
         //isString?
+
+        if(outputMethodName !== undefined) {
+            if(typeof outputMethodName !== "string" || outputMethodName == '') {
+                return alert('Wrong argument');
+            }
+        }
+
         outputMethodName = (outputMethodName || 'console').toLowerCase();
+
 
         if( isNameInObject(outputMethodObject, outputMethodName)) {
             outputMethodObject[outputMethodName](index);
@@ -64,10 +75,10 @@ Logo.Output = (function() {
 
     function showObjects(index, func) {
         if(index !== undefined) { //Сделать проверку на границы длины массива
-            func(Logo.Repository.repository[index]);
+            func(Logger.Repository.repository[index]);
         } else {
-            for(var i = 0; i < Logo.Repository.repository.length; i++) {
-                func(Logo.Repository.repository[i]);
+            for(var i = 0; i < Logger.Repository.repository.length; i++) {
+                func(Logger.Repository.repository[i]);
             }
         }
     }
@@ -88,7 +99,8 @@ Logo.Output = (function() {
     }
 
     return {
-        showLogoInfo: showLogoInfo
+        showLogInfo: showLogInfo,
+        addOutputMethod: addOutputMethod
     };
 
 })();

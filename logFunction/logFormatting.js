@@ -2,7 +2,7 @@
  * Created by vitali.nalivaika on 20.07.2015.
  */
 
-Logo.Formatting = (function() {
+Logger.Formatting = (function() {
     'use strict';
 
     var defaultErrorObject = {
@@ -12,16 +12,20 @@ Logo.Formatting = (function() {
         dateInfo: null
     };
 
-    function registerObject(obj) {
-        var newObject;
-        var index;
+    //change defaultErrorObject object: add new property
+    /*function addFormattingProperty(propertyName, propertyValue) {
+        if( !propertyName  || !propertyValue ) {
+            return alert('Wrong argument/s');
+        }
 
-        newObject = checkProperies(obj);
-        newObject.index = Logo.Repository.addObject(newObject);
-        return newObject; //вернули обьект с четко установленными параметрами и индексом для поиска себя же в repository
-    }
+        if(typeof propertyName !== "string" || typeof propertyValue !== "string" ) {
+            return alert('Wrong argument/s');
+        }
 
-    function checkProperies(obj) {
+        defaultErrorObject[propertyName] = propertyValue;
+    }*/
+
+    function checkProperties(obj) {
         var newObj = new Error();
 
         for(var prop in defaultErrorObject) {
@@ -33,7 +37,7 @@ Logo.Formatting = (function() {
     }
 
     return {
-        registerObject : registerObject
+        checkProperties : checkProperties
     };
 
 })();
