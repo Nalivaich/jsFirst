@@ -5,6 +5,13 @@
 Logo.Formatting = (function() {
     'use strict';
 
+    var defaultErrorObject = {
+        name: 'property is not specified',
+        message: 'property is not specified',
+        extra: 'property is not specified',
+        dateInfo: null
+    };
+
     function registerObject(obj) {
         var newObject;
         var index;
@@ -16,10 +23,12 @@ Logo.Formatting = (function() {
 
     function checkProperies(obj) {
         var newObj = new Error();
-        newObj.name = (obj.name === undefined) ? 'property is not specified' : obj.name;
-        newObj.message = (obj.message === undefined) ? 'property is not specified' : obj.message;
-        newObj.extra = (obj.extra === undefined) ? 'property is not specified' : obj.extra;
-        newObj.dateInfo = (obj.dateInfo === undefined) ? (new Date()) : obj.dateInfo;
+
+        for(var prop in defaultErrorObject) {
+            newObj[prop] = obj[prop] || defaultErrorObject[prop];
+        }
+        newObj.dateInfo = obj.dateInfo || (new Date());
+
         return newObj;
     }
 

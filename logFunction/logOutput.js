@@ -12,16 +12,55 @@ Logo.Output = (function() {
             return choseOutput(methodString);
         }
     }*/
+    // добавить функцию, котора€ может добавл€ть проперти к обьекту, они д.б. функци€ми
 
-    function showLogoInfo(index,methodString) {
-        switch (methodString) {
-            case 'console':
-                showObjects(index, ShowElementConsole);
-                break;
-            default:
-                showObjects(index,ShowElementAlert);
+    var outputMethodObject = {
+        console: function(index){
+            showObjects(index,showElementConsole);
+        },
+        alert: function(index){
+            showObjects(index, showElementAlert);
+        }
+    };
+
+    function isNameInObject(object, nameValue) {
+        return !!object[nameValue];
+    }
+
+
+    //Add new property in outputMethodObject object
+    function addOutputMethod(outputMethod, methodName) {
+        if(methodName === undefined || outputMethod === undefined) {
+            return alert('Wrong argument/s');
+        }
+
+        if(typeof methodName !== "string") {
+            return alert('"methodName" should be a string');
+        }
+
+        if(isNameInObject(outputMethod, methodName)) {
+            return alert('This name already exists.' + '\n\r' + 'Try a different name');
+        }
+
+        if(typeof outputMethod === "function") {
+            var newPropertyName = methodName.toLowerCase();
+
+            outputMethodObject[newPropertyName] = outputMethod;
+        } else {
+            return alert('Wrong argument');
         }
     }
+
+
+    function showLogoInfo(index, outputMethodName) {
+        //isString?
+        outputMethodName = (outputMethodName || 'console').toLowerCase();
+
+        if( isNameInObject(outputMethodObject, outputMethodName)) {
+            outputMethodObject[outputMethodName](index);
+        }
+    }
+
 
     function showObjects(index, func) {
         if(index !== undefined) { //—делать проверку на границы длины массива
@@ -33,21 +72,19 @@ Logo.Output = (function() {
         }
     }
 
-    // ”Ѕ–ј“№ ƒ”ЅЋ»–”ёў»…—я  ќƒ!
-    function ShowElementConsole(element) {
-        console.log(
-            'Name: ' + element.name + '\n\r' +
-            'Message: ' + element.message + '\n\r' +
-            'Extra: ' + element.extra + '\n\r' +
-            'DateInfo: ' +  element.dateInfo );
+    function showElementConsole(element) {
+        console.log(returnFormattingString(element));
     }
 
-    function ShowElementAlert(element) {
-        alert(
-            'Name: ' + element.name + '\n\r' +
-            'Message: ' + element.message + '\n\r' +
-            'Extra: ' + element.extra + '\n\r' +
-            'DateInfo: ' +  element.dateInfo );
+    function showElementAlert(element) {
+        alert(returnFormattingString(element));
+    }
+
+    function returnFormattingString(element) {
+        return ('Name: ' + element.name + '\n\r' +
+        'Message: ' + element.message + '\n\r' +
+        'Extra: ' + element.extra + '\n\r' +
+        'DateInfo: ' +  element.dateInfo );
     }
 
     return {

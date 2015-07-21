@@ -24,7 +24,7 @@ Logo.Main = (function() {
     }
 
     //return index obj in repository
-    function logFunction(obj,formattingFunc) {
+    function logFunction(obj, formattingFunc, outputMethodName) {
         var checkFunc;
         var newErrorObject;
 
@@ -36,7 +36,7 @@ Logo.Main = (function() {
 
         if(isObject(obj)) {
             newErrorObject = checkFunc(obj);
-            Logo.Output.showLogoInfo(newErrorObject.index); //выводим значения обьекта уже из репозитория
+            Logo.Output.showLogoInfo(newErrorObject.index, outputMethodName); //выводим значения обьекта уже из репозитория
             return newErrorObject.index; //возвращаем индекс залогированного обьекта в репозитории
             //return sth output func
         } else {
@@ -54,6 +54,6 @@ Logo.Main = (function() {
 var errorObject =  (new Error());
 errorObject.message = 'some message';
 //Logo.Output.showObjectsAlert(errorObject);
-Logo.Main.logFunction(errorObject);
+Logo.Main.logFunction(errorObject ,'ALErt');
 Logo.Main.logFunction(errorObject);
 Logo.Main.logFunction(errorObject);
