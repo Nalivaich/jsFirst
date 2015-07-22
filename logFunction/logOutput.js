@@ -2,107 +2,96 @@
  * Created by vitali.nalivaika on 20.07.2015.
  */
 
-Logger.Output = (function() {
-    'use strict';
+define(["logRepository"], function(Repository) {
+        function Output() {
+            'use strict';
+            var self = this;
+            var outputMethodObject = {
+                console: function(index){
+                    showObjects(index,showElementConsole);
+                },
+                alert: function(index){
+                    showObjects(index, showElementAlert);
+                },
+                off: function() {
+                    console.log('Output is disabled');
+                }
+            };
 
-   /* function showLogInfo(index, methodString) {
-        if(methodString === undefined) {
-            return showObjectsAlert(index);
-        } else {
-            return choseOutput(methodString);
-        }
-    }*/
+            function isNameInObject(object, nameValue) {
+                return !!object[nameValue];
+            }
 
-    var outputMethodObject = {
-        console: function(index){
-            showObjects(index,showElementConsole);
-        },
-        alert: function(index){
-            showObjects(index, showElementAlert);
-        },
-        off: function() {
-            console.log('Output is disabled');
-        }
-    };
+            //Add new property in outputMethodObject object
+            self.addOutputMethod = function addOutputMethod(outputMethod, methodName) {
+                //if(!methodName || outputMethod ) //maybe that
+                if(methodName === undefined || outputMethod === undefined) {
+                    return  new Error('Wrong argument/s');
+                }
 
-    function isNameInObject(object, nameValue) {
-        return !!object[nameValue];
-    }
+                if(typeof methodName !== "string") {
+                    return new Error('"methodName" should be a string');
+                }
 
+                if(isNameInObject(outputMethod, methodName)) {
+                    return new Error('This name already exists.' + '\n\r' + 'Try a different name');
+                }
 
-    //Add new property in outputMethodObject object
-    function addOutputMethod(outputMethod, methodName) {
-        //if(!methodName || outputMethod ) //вроди бы так
-        if(methodName === undefined || outputMethod === undefined) {
-            return alert('Wrong argument/s');
-        }
+                if(typeof outputMethod === "function") {
+                    var newPropertyName = methodName.toLowerCase();
 
-        if(typeof methodName !== "string") {
-            return alert('"methodName" should be a string');
-        }
+                    outputMethodObject[newPropertyName] = outputMethod;
+                } else {
+                    return new Error('Wrong argument');
+                }
+            };
 
-        if(isNameInObject(outputMethod, methodName)) {
-            return alert('This name already exists.' + '\n\r' + 'Try a different name');
-        }
+            self.showLogInfo = function showLogInfo(index, outputMethodName) {
+                //isString?
 
-        if(typeof outputMethod === "function") {
-            var newPropertyName = methodName.toLowerCase();
+                if(outputMethodName !== undefined) {
+                    if(typeof outputMethodName !== "string" || outputMethodName == '') {
+                        return new Error('Wrong argument');
+                    }
+                }
 
-            outputMethodObject[newPropertyName] = outputMethod;
-        } else {
-            return alert('Wrong argument');
-        }
-    }
+                outputMethodName = (outputMethodName || 'console').toLowerCase();
 
 
-    function showLogInfo(index, outputMethodName) {
-        //isString?
+                if( isNameInObject(outputMethodObject, outputMethodName)) {
+                    outputMethodObject[outputMethodName](index);
+                } else {
+                    outputMethodObject['console'](index)
+                }
+            };
 
-        if(outputMethodName !== undefined) {
-            if(typeof outputMethodName !== "string" || outputMethodName == '') {
-                return alert('Wrong argument');
+            function showObjects(index, func) {
+                if(index !== undefined) {
+                    func(Repository.returnRepositoryObject().repository[index]);
+                } else {
+                    for(var i = 0; i < Repository.returnRepositoryObject().repository.length; i++) {
+                        func(Repository.returnRepositoryObject().repository[i]);
+                    }
+                }
+            }
+
+            function showElementConsole(element) {
+                console.log(returnFormattingString(element));
+            }
+
+            function showElementAlert(element) {
+                alert(returnFormattingString(element));
+            }
+
+            function returnFormattingString(element) {
+                return ('Name: ' + element.name + '\n\r' +
+                'Message: ' + element.message + '\n\r' +
+                'Extra: ' + element.extra + '\n\r' +
+                'DateInfo: ' +  element.dateInfo );
             }
         }
-
-        outputMethodName = (outputMethodName || 'console').toLowerCase();
-
-
-        if( isNameInObject(outputMethodObject, outputMethodName)) {
-            outputMethodObject[outputMethodName](index);
-        } else {
-            outputMethodObject['console'](index)
-        }
+        return new Output();
     }
+);
 
 
-    function showObjects(index, func) {
-        if(index !== undefined) { //Сделать проверку на границы длины массива
-            func(Logger.Repository.returnRepositoryObject().repository[index]);
-        } else {
-            for(var i = 0; i < Logger.Repository.returnRepositoryObject().repository.length; i++) {
-                func(Logger.Repository.returnRepositoryObject().repository[i]);
-            }
-        }
-    }
-
-    function showElementConsole(element) {
-        console.log(returnFormattingString(element));
-    }
-
-    function showElementAlert(element) {
-        alert(returnFormattingString(element));
-    }
-
-    function returnFormattingString(element) {
-        return ('Name: ' + element.name + '\n\r' +
-        'Message: ' + element.message + '\n\r' +
-        'Extra: ' + element.extra + '\n\r' +
-        'DateInfo: ' +  element.dateInfo );
-    }
-
-    return {
-        showLogInfo: showLogInfo,
-        addOutputMethod: addOutputMethod
-    };
-
-})();

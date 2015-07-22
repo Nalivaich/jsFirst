@@ -2,42 +2,31 @@
  * Created by vitali.nalivaika on 20.07.2015.
  */
 
-Logger.Formatting = (function() {
-    'use strict';
+define([], function() {
+        function Formatting() {
+            'use strict';
+            var self = this;
 
-    var defaultErrorObject = {
-        name: 'property is not specified',
-        message: 'property is not specified',
-        extra: 'property is not specified',
-        dateInfo: null
-    };
+            self.defaultErrorObject = {
+                name: 'property is not specified',
+                message: 'property is not specified',
+                extra: 'property is not specified',
+                dateInfo: null
+            };
 
-    //change defaultErrorObject object: add new property
-    /*function addFormattingProperty(propertyName, propertyValue) {
-        if( !propertyName  || !propertyValue ) {
-            return alert('Wrong argument/s');
+            self.checkProperties = function checkProperties(obj) {
+                var newObj = new Error();
+
+                for(var prop in self.defaultErrorObject) {
+                    newObj[prop] = obj[prop] || self.defaultErrorObject[prop];
+                }
+                newObj.dateInfo = obj.dateInfo || (new Date());
+
+                return newObj;
+            }
         }
-
-        if(typeof propertyName !== "string" || typeof propertyValue !== "string" ) {
-            return alert('Wrong argument/s');
+        return new Formatting();
         }
+);
 
-        defaultErrorObject[propertyName] = propertyValue;
-    }*/
 
-    function checkProperties(obj) {
-        var newObj = new Error();
-
-        for(var prop in defaultErrorObject) {
-            newObj[prop] = obj[prop] || defaultErrorObject[prop];
-        }
-        newObj.dateInfo = obj.dateInfo || (new Date());
-
-        return newObj;
-    }
-
-    return {
-        checkProperties : checkProperties
-    };
-
-})();

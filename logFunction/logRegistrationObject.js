@@ -3,20 +3,27 @@
  */
 
 
-Logger.Registration = (function() {
-    'use strict';
+define(["logFormatting", "logRepository", "jquery"],function(Formatting, Repository,$) {
+        function Registration1() {
+            'use strict';
+            var self = this;
 
-    function registerObject(obj) {
-        var newObject;
+            self.registerObject = function registerObject(obj) {
+                var newObject;
 
-        newObject = Logger.Formatting.checkProperties(obj);
-        newObject.index = Logger.Repository.returnRepositoryObject().addObject(newObject);
+                newObject = Formatting.checkProperties(obj);
+                newObject.index = Repository.returnRepositoryObject().addObject(newObject);
 
-        return newObject; //вернули обьект с четко установленными параметрами и индексом для поиска себя же в repository
-    }
+                return newObject;
+            }
+        }
+        return new Registration1();
+        }
+);
 
-    return {
-        registerObject : registerObject
-    };
 
-})();
+
+
+
+
+
