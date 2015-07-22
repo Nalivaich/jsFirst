@@ -69,6 +69,8 @@ Logger.Output = (function() {
 
         if( isNameInObject(outputMethodObject, outputMethodName)) {
             outputMethodObject[outputMethodName](index);
+        } else {
+            outputMethodObject['console'](index)
         }
     }
 

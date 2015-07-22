@@ -24,18 +24,12 @@ Logger.Main = (function() {
     }
 
     //return index obj in repository
-    function logFunction(obj, formattingFunc, outputMethodName) {
-        var checkFunc;
+    function logFunction(obj, outputMethodName) {
+
         var newErrorObject;
-        //убрать второй параметр : formattingFunc
-        if(formattingFunc === undefined) {
-            checkFunc = Logger.Registration.registerObject;
-        } else {
-            checkFunc = formattingFunc;
-        }
 
         if(isObject(obj)) {
-            newErrorObject = checkFunc(obj);
+            newErrorObject = Logger.Registration.registerObject(obj);
             Logger.Output.showLogInfo(newErrorObject.index, outputMethodName); //выводим значения обьекта уже из репозитория
             return newErrorObject.index; //возвращаем индекс залогированного обьекта в репозитории
             //return sth output func
@@ -54,6 +48,9 @@ Logger.Main = (function() {
 var errorObject =  (new Error());
 errorObject.message = 'some message';
 //Logger.Output.showObjectsAlert(errorObject);
-Logger.Main.logFunction(errorObject );
-Logger.Main.logFunction(errorObject);
-Logger.Main.logFunction(errorObject);
+Logger.Main.logFunction(errorObject, 'alerT');
+/*Logger.Main.logFunction(errorObject, 'conSole');
+Logger.Main.logFunction(errorObject, 'oFf');
+Logger.Main.logFunction(errorObject, 'MyGreatApi');
+Logger.Main.logFunction(errorObject, 'MyGreatApi');
+Logger.Main.logFunction(errorObject, 'MyGreatApi');*/
