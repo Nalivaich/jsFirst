@@ -75,10 +75,10 @@ Logger.Output = (function() {
 
     function showObjects(index, func) {
         if(index !== undefined) { //Сделать проверку на границы длины массива
-            func(Logger.Repository.repository[index]);
+            func(Logger.Repository.returnRepositoryObject().repository[index]);
         } else {
-            for(var i = 0; i < Logger.Repository.repository.length; i++) {
-                func(Logger.Repository.repository[i]);
+            for(var i = 0; i < Logger.Repository.returnRepositoryObject().repository.length; i++) {
+                func(Logger.Repository.returnRepositoryObject().repository[i]);
             }
         }
     }

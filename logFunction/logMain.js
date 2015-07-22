@@ -51,9 +51,9 @@ Logger.Main = (function() {
 
 
 
-/*var errorObject =  (new Error());
+var errorObject =  (new Error());
 errorObject.message = 'some message';
 //Logger.Output.showObjectsAlert(errorObject);
-Logger.Main.logFunction(errorObject,undefined,'OFf' );
+Logger.Main.logFunction(errorObject );
 Logger.Main.logFunction(errorObject);
-Logger.Main.logFunction(errorObject);*/
+Logger.Main.logFunction(errorObject);

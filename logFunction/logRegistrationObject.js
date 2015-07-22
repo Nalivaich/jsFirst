@@ -10,7 +10,7 @@ Logger.Registration = (function() {
         var newObject;
 
         newObject = Logger.Formatting.checkProperties(obj);
-        newObject.index = Logger.inMemoryRepository.addObject(newObject);
+        newObject.index = Logger.Repository.returnRepositoryObject().addObject(newObject);
 
         return newObject; //вернули обьект с четко установленными параметрами и индексом для поиска себя же в repository
     }
