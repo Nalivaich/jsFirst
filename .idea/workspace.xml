@@ -21,33 +21,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="logMain.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/logFunction/logMain.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="55" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="indexLog.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/logFunction/indexLog.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.1923075">
-              <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="init.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/logFunction/init.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3280363">
-              <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.5402951">
+              <caret line="87" column="3" selection-start-line="87" selection-start-column="3" selection-end-line="87" selection-end-column="3" />
               <folding>
                 <element signature="e#0#53#0" expanded="false" />
+                <element signature="e#812#1990#0" expanded="false" />
+                <element signature="e#2034#2777#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -57,11 +39,11 @@
         <entry file="file://$PROJECT_DIR$/logFunction/logMainJS.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="39" column="30" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
+              <caret line="32" column="31" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
               <folding>
                 <element signature="e#0#53#0" expanded="false" />
-                <element signature="e#433#634#0" expanded="false" />
-                <element signature="e#667#868#0" expanded="false" />
+                <element signature="e#490#691#0" expanded="false" />
+                <element signature="e#724#925#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -70,14 +52,11 @@
       <file leaf-file-name="logRepository.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/logFunction/logRepository.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
+            <state vertical-scroll-proportion="-18.758621">
+              <caret line="67" column="63" selection-start-line="67" selection-start-column="63" selection-end-line="67" selection-end-column="63" />
               <folding>
                 <element signature="e#0#53#0" expanded="false" />
-                <element signature="e#185#505#0" expanded="false" />
-                <element signature="e#557#1383#0" expanded="false" />
-                <element signature="e#1578#1758#0" expanded="false" />
-                <element signature="e#1844#2490#0" expanded="false" />
+                <element signature="e#661#1487#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -86,18 +65,17 @@
       <file leaf-file-name="logOutput.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/logFunction/logOutput.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.793103">
-              <caret line="65" column="25" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
+            <state vertical-scroll-proportion="-14.068966">
+              <caret line="58" column="82" selection-start-line="58" selection-start-column="82" selection-end-line="58" selection-end-column="82" />
               <folding>
                 <element signature="e#0#53#0" expanded="false" />
                 <element signature="e#224#632#0" expanded="false" />
                 <element signature="e#690#749#0" expanded="false" />
-                <element signature="e#897#1756#0" expanded="false" />
-                <element signature="e#1862#2469#0" expanded="false" />
-                <element signature="e#2530#2939#0" expanded="false" />
-                <element signature="e#2990#3067#0" expanded="false" />
-                <element signature="e#3116#3187#0" expanded="false" />
-                <element signature="e#3242#3478#0" expanded="false" />
+                <element signature="e#897#1755#0" expanded="false" />
+                <element signature="e#2583#2992#0" expanded="false" />
+                <element signature="e#3043#3120#0" expanded="false" />
+                <element signature="e#3169#3240#0" expanded="false" />
+                <element signature="e#3295#3531#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -119,8 +97,8 @@
       <file leaf-file-name="logRegistrationObject.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/logFunction/logRegistrationObject.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.034483">
-              <caret line="14" column="86" selection-start-line="14" selection-start-column="86" selection-end-line="14" selection-end-column="86" />
+            <state vertical-scroll-proportion="-13.4827585">
+              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding>
                 <element signature="e#0#53#0" expanded="false" />
               </folding>
@@ -181,12 +159,12 @@
         <option value="$PROJECT_DIR$/logFunction/logMain.js" />
         <option value="$PROJECT_DIR$/logFunction/mainJS.js" />
         <option value="$PROJECT_DIR$/logFunction/indexLog.html" />
-        <option value="$PROJECT_DIR$/logFunction/logRepository.js" />
-        <option value="$PROJECT_DIR$/logFunction/init.js" />
         <option value="$PROJECT_DIR$/logFunction/logRegistrationObject.js" />
         <option value="$PROJECT_DIR$/logFunction/logFormatting.js" />
+        <option value="$PROJECT_DIR$/logFunction/logRepository.js" />
         <option value="$PROJECT_DIR$/logFunction/logOutput.js" />
         <option value="$PROJECT_DIR$/logFunction/logMainJS.js" />
+        <option value="$PROJECT_DIR$/logFunction/init.js" />
       </list>
     </option>
   </component>
@@ -375,7 +353,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="28" />
+      <option name="time" value="29" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -693,24 +671,34 @@
         <state vertical-scroll-proportion="0.18952063">
           <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logFunction/indexLog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21469575">
+          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/logFunction/logMain.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="55" selection-end-column="53" />
+          <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logFunction/indexLog.html">
+    <entry file="file://$PROJECT_DIR$/logFunction/logRegistrationObject.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075">
-          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-          <folding />
+        <state vertical-scroll-proportion="-13.4827585">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#53#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -725,44 +713,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logFunction/logRegistrationObject.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.034483">
-          <caret line="14" column="86" selection-start-line="14" selection-start-column="86" selection-end-line="14" selection-end-column="86" />
-          <folding>
-            <element signature="e#0#53#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logFunction/logRepository.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#53#0" expanded="false" />
-            <element signature="e#185#505#0" expanded="false" />
-            <element signature="e#557#1383#0" expanded="false" />
-            <element signature="e#1578#1758#0" expanded="false" />
-            <element signature="e#1844#2490#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/logFunction/logOutput.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.793103">
-          <caret line="65" column="25" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
+        <state vertical-scroll-proportion="-14.068966">
+          <caret line="58" column="82" selection-start-line="58" selection-start-column="82" selection-end-line="58" selection-end-column="82" />
           <folding>
             <element signature="e#0#53#0" expanded="false" />
             <element signature="e#224#632#0" expanded="false" />
             <element signature="e#690#749#0" expanded="false" />
-            <element signature="e#897#1756#0" expanded="false" />
-            <element signature="e#1862#2469#0" expanded="false" />
-            <element signature="e#2530#2939#0" expanded="false" />
-            <element signature="e#2990#3067#0" expanded="false" />
-            <element signature="e#3116#3187#0" expanded="false" />
-            <element signature="e#3242#3478#0" expanded="false" />
+            <element signature="e#897#1755#0" expanded="false" />
+            <element signature="e#2583#2992#0" expanded="false" />
+            <element signature="e#3043#3120#0" expanded="false" />
+            <element signature="e#3169#3240#0" expanded="false" />
+            <element signature="e#3295#3531#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -770,21 +733,34 @@
     <entry file="file://$PROJECT_DIR$/logFunction/logMainJS.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="30" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
+          <caret line="32" column="31" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
           <folding>
             <element signature="e#0#53#0" expanded="false" />
-            <element signature="e#433#634#0" expanded="false" />
-            <element signature="e#667#868#0" expanded="false" />
+            <element signature="e#490#691#0" expanded="false" />
+            <element signature="e#724#925#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logFunction/logRepository.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.758621">
+          <caret line="67" column="63" selection-start-line="67" selection-start-column="63" selection-end-line="67" selection-end-column="63" />
+          <folding>
+            <element signature="e#0#53#0" expanded="false" />
+            <element signature="e#661#1487#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/logFunction/init.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3280363">
-          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.5402951">
+          <caret line="87" column="3" selection-start-line="87" selection-start-column="3" selection-end-line="87" selection-end-column="3" />
           <folding>
             <element signature="e#0#53#0" expanded="false" />
+            <element signature="e#812#1990#0" expanded="false" />
+            <element signature="e#2034#2777#0" expanded="false" />
           </folding>
         </state>
       </provider>

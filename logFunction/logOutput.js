@@ -39,14 +39,13 @@ define(["logRepository"], function(Repository) {
 
                 if(typeof outputMethod === "function") {
                     var newPropertyName = methodName.toLowerCase();
-
                     outputMethodObject[newPropertyName] = outputMethod;
                 } else {
                     return new Error('Wrong argument');
                 }
             };
 
-            self.outputLoggerObject = function outputLoggerObject(indexInRepository, outputMethodName) {
+            self.outputLoggerObject = function outputLoggerObject(indexInRepository, returnRepository, outputMethodName) {
                 if(outputMethodName !== undefined) {
                     if(typeof outputMethodName !== "string" || outputMethodName == '') {
                         return new Error('Wrong argument');
@@ -57,9 +56,9 @@ define(["logRepository"], function(Repository) {
 
 
                 if( isNameInObject(outputMethodObject, outputMethodName)) {
-                    outputMethodObject[outputMethodName](indexInRepository);
+                    outputMethodObject[outputMethodName](indexInRepository, returnRepository);
                 } else {
-                    outputMethodObject['console'](indexInRepository)
+                    outputMethodObject['console'](indexInRepository, returnRepository)
                 }
             };
 

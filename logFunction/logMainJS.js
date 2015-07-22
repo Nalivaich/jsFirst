@@ -9,6 +9,7 @@ define(["logFormatting", "logRepository", "logRegistrationObject", "logOutput" ,
         var self = this;
         self.addOutputMethod = Output.addOutputMethod;
         self.setNewRepository = Repository.setNewRepository;
+        self.BaseRepository = Repository.BaseRepository;
 
         function isRightArguments(args) {
             for (var i = 0; i < args.length; i++) {
@@ -33,7 +34,7 @@ define(["logFormatting", "logRepository", "logRegistrationObject", "logOutput" ,
 
             if (isObject(inputObject)) {
                 newErrorObject = Registration.registerObject(inputObject);
-                Output.outputLoggerObject(newErrorObject.index, outputMethodName);
+                Output.outputLoggerObject(newErrorObject.index, Repository.returnRepositoryObject().repository, outputMethodName);
 
                 return newErrorObject.index;
             } else {

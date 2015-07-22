@@ -6,16 +6,16 @@ define([], function() {
         function Repository() {
             var self = this;
 
-            var BaseRepository = function() {
-
+            self.BaseRepository = function() {
+                var objSelf  = this;
                 //remove object by index
-                function deleteObject(index) { }
+                objSelf.deleteObject = function deleteObject(index) { };
 
                 // add object in repository and returns element index
-                function addObject(obj) { }
+                objSelf.addObject = function addObject(obj) { };
 
                 //find and return object by index
-                function findObject(index) { }
+                objSelf.findObject = function findObject(index) { };
 
             };
 
@@ -48,7 +48,7 @@ define([], function() {
                 //Logger.inMemoryRepository.constructor = Logger.inMemoryRepository;
             };
 
-            inMemoryRepository.prototype = Object.create(new BaseRepository());
+            inMemoryRepository.prototype = Object.create(new self.BaseRepository());
 
             var repositoryObject;
 
@@ -66,11 +66,12 @@ define([], function() {
                 }
 
                 if(typeof newRepositoryObject === "function") {
-                    if(newRepositoryObject instanceof BaseRepository) {
+                    var newRepository = new newRepositoryObject();
+                    if(self.BaseRepository.prototype.isPrototypeOf(newRepository)) {
                         repositoryObject = new newRepositoryObject();
                         return;
                     }
-                } else if(BaseRepository.prototype.isPrototypeOf(newRepositoryObject)) {
+                } else if(self.BaseRepository.prototype.isPrototypeOf(newRepositoryObject)) {
                     repositoryObject = newRepositoryObject;
                     return;
                 }
