@@ -7,11 +7,11 @@ define(["logRepository"], function(Repository) {
             'use strict';
             var self = this;
             var outputMethodObject = {
-                console: function(index){
-                    showObjects(index,showElementConsole);
+                console: function(indexInRepository){
+                    showObjects(showElementConsole, indexInRepository);
                 },
-                alert: function(index){
-                    showObjects(index, showElementAlert);
+                alert: function(indexInRepository){
+                    showObjects(showElementAlert, indexInRepository);
                 },
                 off: function() {
                     console.log('Output is disabled');
@@ -46,9 +46,7 @@ define(["logRepository"], function(Repository) {
                 }
             };
 
-            self.showLogInfo = function showLogInfo(index, outputMethodName) {
-                //isString?
-
+            self.outputLoggerObject = function outputLoggerObject(indexInRepository, outputMethodName) {
                 if(outputMethodName !== undefined) {
                     if(typeof outputMethodName !== "string" || outputMethodName == '') {
                         return new Error('Wrong argument');
@@ -59,15 +57,15 @@ define(["logRepository"], function(Repository) {
 
 
                 if( isNameInObject(outputMethodObject, outputMethodName)) {
-                    outputMethodObject[outputMethodName](index);
+                    outputMethodObject[outputMethodName](indexInRepository);
                 } else {
-                    outputMethodObject['console'](index)
+                    outputMethodObject['console'](indexInRepository)
                 }
             };
 
-            function showObjects(index, func) {
-                if(index !== undefined) {
-                    func(Repository.returnRepositoryObject().repository[index]);
+            function showObjects(func, indexInRepository) {
+                if(indexInRepository !== undefined) {
+                    func(Repository.returnRepositoryObject().repository[indexInRepository]);
                 } else {
                     for(var i = 0; i < Repository.returnRepositoryObject().repository.length; i++) {
                         func(Repository.returnRepositoryObject().repository[i]);

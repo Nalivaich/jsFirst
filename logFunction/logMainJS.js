@@ -28,13 +28,12 @@ define(["logFormatting", "logRepository", "logRegistrationObject", "logOutput" ,
         }
 
         //return index errorObject in repository
-        self.logFunction = function logFunction(obj, outputMethodName) {
-
+        self.logFunction = function logFunction(inputObject, outputMethodName) {
             var newErrorObject;
 
-            if (isObject(obj)) {
-                newErrorObject = Registration.registerObject(obj);
-                Output.showLogInfo(newErrorObject.index, outputMethodName);
+            if (isObject(inputObject)) {
+                newErrorObject = Registration.registerObject(inputObject);
+                Output.outputLoggerObject(newErrorObject.index, outputMethodName);
 
                 return newErrorObject.index;
             } else {

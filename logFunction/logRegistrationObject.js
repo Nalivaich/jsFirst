@@ -4,20 +4,20 @@
 
 
 define(["logFormatting", "logRepository", "jquery"],function(Formatting, Repository,$) {
-        function Registration1() {
+        function Registration() {
             'use strict';
             var self = this;
 
-            self.registerObject = function registerObject(obj) {
-                var newObject;
+            self.registerObject = function registerObject(inputObject) {
+                var newFormattedObject;
 
-                newObject = Formatting.checkProperties(obj);
-                newObject.index = Repository.returnRepositoryObject().addObject(newObject);
+                newFormattedObject = Formatting.returnFormattedObject(inputObject);
+                newFormattedObject.index = Repository.returnRepositoryObject().addObject(newFormattedObject);
 
-                return newObject;
+                return newFormattedObject;
             }
         }
-        return new Registration1();
+        return new Registration();
         }
 );
 

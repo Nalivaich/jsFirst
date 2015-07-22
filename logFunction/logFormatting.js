@@ -14,15 +14,15 @@ define([], function() {
                 dateInfo: null
             };
 
-            self.checkProperties = function checkProperties(obj) {
-                var newObj = new Error();
+            self.returnFormattedObject = function returnFormattedObject(objectToFormat) {
+                var newFormattedObject = new Error();
 
                 for(var prop in self.defaultErrorObject) {
-                    newObj[prop] = obj[prop] || self.defaultErrorObject[prop];
+                    newFormattedObject[prop] = objectToFormat[prop] || self.defaultErrorObject[prop];
                 }
-                newObj.dateInfo = obj.dateInfo || (new Date());
+                newFormattedObject.dateInfo = objectToFormat.dateInfo || (new Date());
 
-                return newObj;
+                return newFormattedObject;
             }
         }
         return new Formatting();
